@@ -47,20 +47,18 @@ public class GlowneOkno extends AppCompatActivity {
 
          db = new SamochodImpl(this,baza);
          db.open();
-/*
+
         db.DodajSamochod(new Samochod("kia","rio", 9.8f));
         db.DodajSamochod(new Samochod("honda","accord", 12.6f));
         db.DodajSamochod(new Samochod("fiat","panda", 7.8f));
-*/
-        addListenerOnButtonAddCarWindow();
-        addListenerOnButtonDeleteCar();
+
 
         adapter = new AdapterListySamochodow(this,db.PobierzWszystkieSamochody());
         //DodajDoBazySamochod();
 
 
         for (Samochod cn : db.PobierzWszystkieSamochody()) {
-            String log = "Id: " + cn.getId() + " ,Model: " + cn.getModel() + " , Marka: " + cn.getModel();
+            String log = "Id: " + cn.getId() + " ,Model: " + cn.getMarka() + " , Marka: " + cn.getModel();
             Log.d("Name: ", log);
         }
 
@@ -69,7 +67,8 @@ public class GlowneOkno extends AppCompatActivity {
         listaSamochodow.setAdapter(adapter);
         listaSamochodow.setClickable(true);
 
-
+        addListenerOnButtonAddCarWindow();
+        addListenerOnButtonDeleteCar();
         listaSamochodow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -83,18 +82,16 @@ public class GlowneOkno extends AppCompatActivity {
                 }
                 else if(czy_usunac==2) czy_usunac++;
 
-
-
-
                 KlikniecieElementuListy();
-
             }
         });
 
 
 
+
+
     }
-    
+
     public void addListenerOnButtonDeleteCar() {
         final Context context = this;
         usunSamochod.setOnClickListener(new View.OnClickListener() {
@@ -121,6 +118,7 @@ public class GlowneOkno extends AppCompatActivity {
         dodajSamochod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
+                db.close();
                 Intent intent = new Intent(context, DodawanieSamochodow.class);
                 startActivity(intent);
                 //adapter.notifyDataSetChanged();

@@ -54,6 +54,8 @@ public class DodawanieSamochodow extends AppCompatActivity {
 */
 
                 db.DodajSamochod(new Samochod(markaP, modelP, spalanieP));
+                db.close();
+
                 Intent intent = new Intent(context, GlowneOkno.class);
                 startActivity(intent);
             }
