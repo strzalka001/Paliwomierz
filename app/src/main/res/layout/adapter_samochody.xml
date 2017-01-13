@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <TextView
+        android:id="@+id/nazwa"
+        android:textStyle=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:paddingLeft="10dp"
+
+        />
+    <TextView
+        android:id="@+id/cena"
+        android:textStyle=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:paddingRight="10dp"
+        android:layout_alignParentRight="true"
+
+        />
+    <TextView
+        android:paddingTop="25dp"
+        android:id="@+id/opis"
+        android:textStyle="italic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:textSize="13dp"
+
+        />
+
+
+</RelativeLayout>
