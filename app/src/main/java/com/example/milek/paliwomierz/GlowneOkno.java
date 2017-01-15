@@ -11,8 +11,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -23,7 +25,9 @@ public class GlowneOkno extends AppCompatActivity {
     AdapterListySamochodow adapter;
     List samochody;
     Button dodajSamochod, usunSamochod, logi;
+    ImageView add, delete;
     ListView listaSamochodow;
+    TextView wybierzSamochod;
     Samochod auto;
     SamochodImpl db;
     int czy_usunac = 0;
@@ -35,11 +39,14 @@ public class GlowneOkno extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_glowne_okno);
-        dodajSamochod = (Button) findViewById(R.id.buttonDodajSamochod);
-        usunSamochod = (Button) findViewById(R.id.buttonUsunSamochod);
+        //dodajSamochod = (Button) findViewById(R.id.buttonDodajSamochod);
+        wybierzSamochod = (TextView) findViewById(R.id.wybierzSamochod);
+        //usunSamochod = (Button) findViewById(R.id.buttonUsunSamochod);
         listaSamochodow= (ListView) findViewById(R.id.ListViewSamochody);
         layout = (RelativeLayout) findViewById(R.id.activity_glowne_okno);
-        logi= (Button) findViewById(R.id.logi);
+        add = (ImageView) findViewById(R.id.imageViewAdd);
+        delete = (ImageView) findViewById(R.id.imageViewDelete);
+
         context=this;
 
         samochody = new ArrayList();
@@ -70,7 +77,7 @@ public class GlowneOkno extends AppCompatActivity {
 
         addListenerOnButtonAddCarWindow();
         addListenerOnButtonDeleteCar();
-        WyswietlLogi();
+
         listaSamochodow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -111,20 +118,23 @@ public class GlowneOkno extends AppCompatActivity {
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1    metodki      !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public void addListenerOnButtonDeleteCar() {
         final Context context = this;
-        usunSamochod.setOnClickListener(new View.OnClickListener() {
+        delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
 
-                if(czy_usunac>0)
-                {
-                    czy_usunac=0;
-                    layout.setBackgroundColor(Color.parseColor("#ffffff"));
-                }
                 if(czy_usunac==0)
                 {
                     czy_usunac=1;
-                    layout.setBackgroundColor(Color.parseColor("#ff0000"));
+                    layout.setBackgroundColor(Color.parseColor("#FF9999"));
+                    wybierzSamochod.setText("Wybierz samochod, który chcesz usunąć:");
                 }
+                else if(czy_usunac>0)
+                {
+                    czy_usunac=0;
+                    layout.setBackgroundColor(Color.parseColor("#CCCCFF"));
+                    wybierzSamochod.setText("Wybierz samochód: ");
+                }
+
 
             }
         });
@@ -132,7 +142,7 @@ public class GlowneOkno extends AppCompatActivity {
 
     public void addListenerOnButtonAddCarWindow() {
         final Context context = this;
-        dodajSamochod.setOnClickListener(new View.OnClickListener() {
+        add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 Intent intent = new Intent(context, DodawanieSamochodow.class);
@@ -164,7 +174,8 @@ public class GlowneOkno extends AppCompatActivity {
             adapter.remove(auto);
             adapter.notifyDataSetChanged();
             czy_usunac=0;
-            layout.setBackgroundColor(Color.parseColor("#ffffff"));
+            layout.setBackgroundColor(Color.parseColor("#CCCCFF"));
+            wybierzSamochod.setText("Wybierz samochód: ");
         }
 
         else if(czy_usunac==3) {
@@ -185,22 +196,6 @@ public class GlowneOkno extends AppCompatActivity {
     }
 */
 
-    public void WyswietlLogi() {
-        final Context context = this;
-        logi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                for (Samochod cn : db.PobierzWszystkieSamochody()) {
-                    String log = "Id: " + cn.getId() + " ,Model: " + cn.getMarka() + " , Marka: " + cn.getModel();
-                    Log.d("Name: ", log);
-                }
-
-
-
-                //adapter.notifyDataSetChanged();
-            }
-        });
-    }
 
 
 

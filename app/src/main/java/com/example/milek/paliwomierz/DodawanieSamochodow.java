@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class DodawanieSamochodow extends AppCompatActivity {
 
@@ -41,24 +42,26 @@ public class DodawanieSamochodow extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
 
-                String markaP = marka.getText().toString();
-                String modelP = model.getText().toString();
-                float spalanieP = Float.parseFloat(spalanie.getText().toString());
-                //Intent intent = new Intent(getApplicationContext(), GlowneOkno.class);
-/*
-
-                intent.putExtra("marka",markaP);
-                intent.putExtra("model",modelP);
-                intent.putExtra("spalanie",Float.toString(spalanieP));
-                startActivity(intent);
-*/
-                db.DodajSamochod(new Samochod(markaP, modelP, spalanieP));
-                db.close();
-                finish();
+                if(isEmpty(marka) || isEmpty(model) || isEmpty(spalanie)){
+                    Toast.makeText(DodawanieSamochodow.this, "Wprawadź wszystkie dane", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    String markaP = marka.getText().toString();
+                    String modelP = model.getText().toString();
+                    float spalanieP = Float.parseFloat(spalanie.getText().toString());
+                    //Intent intent = new Intent(getApplicationContext(), GlowneOkno.class);
+                    db.DodajSamochod(new Samochod(markaP, modelP, spalanieP));
+                    db.close();
+                    finish();
+                }
             }
         });
     }
 
 
-
+    private boolean isEmpty(EditText etText) {
+        if (etText.getText().toString().trim().length() > 0)
+            return false;
+        return true;
+    }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_glowne_okno"
     android:layout_width="match_parent"
@@ -11,39 +12,64 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.milek.paliwomierz.GlowneOkno">
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/buttonDodajSamochod"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp"
-        android:id="@+id/ListViewSamochody" />
-
-    <Button
-        android:text="Dodaj samochod"
+    <TextView
+        android:text="Wybierz samochód:"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:id="@+id/buttonDodajSamochod"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:text="USUN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/buttonDodajSamochod"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/buttonUsunSamochod" />
+        android:layout_marginLeft="2dp"
+        android:id="@+id/wybierzSamochod" />
 
-    <Button
-        android:text="logi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+    <ListView
+        android:paddingTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:id="@+id/ListViewSamochody"
+
+        android:layout_alignParentLeft="true"
+         />
+    <!--
+        <Button
+            android:text="USUN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonUsunSamochod"
+            android:layout_below="@+id/ListViewSamochody"
+            android:layout_alignLeft="@+id/wybierzSamochod"
+            android:layout_alignStart="@+id/wybierzSamochod"
+            android:layout_marginTop="13dp" />
+
+        <Button
+            android:text="Dodaj samochod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonDodajSamochod"
+            android:layout_alignBaseline="@+id/buttonUsunSamochod"
+            android:layout_alignBottom="@+id/buttonUsunSamochod"
+            android:layout_centerHorizontal="true" />
+    -->
+
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        app:srcCompat="@drawable/addcar"
+        android:id="@+id/imageViewAdd"
+        android:layout_marginEnd="25dp"
+        android:layout_below="@+id/ListViewSamochody"
+        android:layout_marginRight="80dp"
+         />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/deletecar"
+        android:id="@+id/imageViewDelete"
+        android:layout_marginEnd="27dp"
+        android:layout_marginRight="27dp"
+        android:layout_below="@+id/ListViewSamochody"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/logi" />
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>
