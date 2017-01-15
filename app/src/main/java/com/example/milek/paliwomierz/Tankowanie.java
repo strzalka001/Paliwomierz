@@ -14,7 +14,23 @@ public class Tankowanie {
     float cena_za_litr;
     String data;
 
+    public Tankowanie() {}
 
+
+    public Tankowanie(int id_samochodu, float litry, float cena_za_litr, String data) {
+        this.id_samochodu = id_samochodu;
+        this.litry = litry;
+        this.cena_za_litr = cena_za_litr;
+        this.data = data;
+    }
+
+    public Tankowanie(int id, int id_samochodu, float litry, float cena_za_litr, String data) {
+        this.id = id;
+        this.id_samochodu = id_samochodu;
+        this.litry = litry;
+        this.cena_za_litr = cena_za_litr;
+        this.data = data;
+    }
 
     public int getId() {
         return id;

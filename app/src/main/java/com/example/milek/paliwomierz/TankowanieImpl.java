@@ -13,9 +13,7 @@ import java.util.List;
  */
 public class TankowanieImpl {
 
-    private static final String DEBUG_TAG = "SqLite";
-    private static final int DB_VERSION = 1;
-    private static final String DB_NAME = "bazadanych.db";
+
 
     private static final String tabela_tankowania = "tankowania";
     private static final String id_tan = "id_tan";
@@ -41,7 +39,7 @@ public class TankowanieImpl {
 
 
     public TankowanieImpl open(){
-        baza = new BazaDanych(context, DB_NAME, null, DB_VERSION);
+       // baza = new BazaDanych(context, DB_NAME, null, DB_VERSION);
         try {
             db = baza.getWritableDatabase();
         } catch (SQLException e) {
@@ -56,7 +54,6 @@ public class TankowanieImpl {
     public long DodajTankowanie(Tankowanie task) {
 
         ContentValues newTodoValues = new ContentValues();
-        newTodoValues.put(id_tan, task.getId());
         newTodoValues.put(id_sam, task.getId_samochodu());
         newTodoValues.put(litry, task.getLitry());
         newTodoValues.put(cena, task.getCena_za_litr());
@@ -112,7 +109,7 @@ public class TankowanieImpl {
 
     public List<Tankowanie> PobierzTankowaniaSamochodu(int idP) {
 
-        String where = id_tan + "=" + idP;
+        String where = id_sam + "=" + idP;
 
         List<Tankowanie> pom =new ArrayList<Tankowanie>();
 
@@ -124,8 +121,8 @@ public class TankowanieImpl {
                 Tankowanie item = new Tankowanie();
                 item.setId(Integer.parseInt(cursor.getString(0)));
                 item.setId_samochodu(Integer.parseInt(cursor.getString(1)));
-                item.setLitry(Integer.parseInt(cursor.getString(2)));
-                item.setCena_za_litr(Integer.parseInt(cursor.getString(3)));
+                item.setLitry(Float.parseFloat(cursor.getString(2)));
+                item.setCena_za_litr(Float.parseFloat(cursor.getString(3)));
                 item.setData(cursor.getString(4));
 
                 pom.add(item);

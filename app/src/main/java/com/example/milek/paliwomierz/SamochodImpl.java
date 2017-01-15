@@ -127,9 +127,9 @@ public class SamochodImpl {
         return pom;
     }
 
-    public boolean UsunSamochod(long id){
+    public boolean UsunSamochod(long idp){
 
-        String where = id + "=" + id;
+        String where = id + "=" + idp;
         return db.delete(tabela_samochody, where, null) > 0;
 
     }

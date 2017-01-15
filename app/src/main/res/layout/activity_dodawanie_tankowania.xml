@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_dodawanie_samochodow"
+    android:id="@+id/activity_dodawanie_tankowania"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CCCCFF"
@@ -9,52 +9,51 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.milek.paliwomierz.DodawanieSamochodow">
+    tools:context="com.example.milek.paliwomierz.DodawanieTankowania">
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:ems="10"
+        android:layout_marginTop="40dp"
+        android:id="@+id/editTextLitry"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="52dp"
-        android:id="@+id/editTextMarka"
-        android:hint="Wpisz markę samochodu" />
+        android:inputType="numberDecimal"
+        android:hint="Ile litrow zalales?" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         android:ems="10"
-        android:layout_below="@+id/editTextMarka"
+        android:layout_marginTop="36dp"
+        android:id="@+id/editTextData"
+        android:layout_below="@+id/editTextCena"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="50dp"
-        android:id="@+id/editTextModel"
-        android:hint="Wpisz model samochodu" />
+        android:hint="Data tankowania" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         android:ems="10"
-        android:layout_below="@+id/editTextModel"
+        android:layout_marginTop="29dp"
+        android:id="@+id/editTextCena"
+        android:hint="Cena za litr"
+        android:layout_below="@+id/editTextLitry"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="65dp"
-        android:id="@+id/editTextSpalanie"
-        android:hint="wpisz średnie spalanie" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:text="Dodaj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonStworzSamochod"
-        android:layout_below="@+id/editTextSpalanie"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="12dp"
-        android:layout_marginEnd="12dp" />
+        android:id="@+id/buttonDodaj"
+        android:layout_below="@+id/editTextData"
+        android:layout_alignRight="@+id/editTextData"
+        android:layout_alignEnd="@+id/editTextData"
+        android:layout_marginTop="18dp" />
 </RelativeLayout>

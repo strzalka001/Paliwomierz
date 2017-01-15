@@ -22,7 +22,7 @@ public class GlowneOkno extends AppCompatActivity {
 
     AdapterListySamochodow adapter;
     List samochody;
-    Button dodajSamochod, usunSamochod;
+    Button dodajSamochod, usunSamochod, logi;
     ListView listaSamochodow;
     Samochod auto;
     SamochodImpl db;
@@ -39,6 +39,7 @@ public class GlowneOkno extends AppCompatActivity {
         usunSamochod = (Button) findViewById(R.id.buttonUsunSamochod);
         listaSamochodow= (ListView) findViewById(R.id.ListViewSamochody);
         layout = (RelativeLayout) findViewById(R.id.activity_glowne_okno);
+        logi= (Button) findViewById(R.id.logi);
         context=this;
 
         samochody = new ArrayList();
@@ -47,14 +48,14 @@ public class GlowneOkno extends AppCompatActivity {
 
          db = new SamochodImpl(this,baza);
          db.open();
-
+/*
         db.DodajSamochod(new Samochod("kia","rio", 9.8f));
         db.DodajSamochod(new Samochod("honda","accord", 12.6f));
         db.DodajSamochod(new Samochod("fiat","panda", 7.8f));
-
+*/
 
         adapter = new AdapterListySamochodow(this,db.PobierzWszystkieSamochody());
-        //DodajDoBazySamochod();
+
 
 
         for (Samochod cn : db.PobierzWszystkieSamochody()) {
@@ -62,13 +63,14 @@ public class GlowneOkno extends AppCompatActivity {
             Log.d("Name: ", log);
         }
 
-        listaSamochodow = (ListView) findViewById( R.id.ListViewSamochody);
+
         //pole = (TextView) findViewById(R.id.textView4);
         listaSamochodow.setAdapter(adapter);
         listaSamochodow.setClickable(true);
 
         addListenerOnButtonAddCarWindow();
         addListenerOnButtonDeleteCar();
+        WyswietlLogi();
         listaSamochodow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -86,12 +88,27 @@ public class GlowneOkno extends AppCompatActivity {
             }
         });
 
-
-
-
-
     }
 
+    @Override
+    protected void onPause() {
+        db.close();
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        db.open();
+        listaSamochodow.setAdapter(null);
+        adapter = new AdapterListySamochodow(this,db.PobierzWszystkieSamochody());
+        listaSamochodow.setAdapter(adapter);
+        super.onResume();
+    }
+
+
+
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1    metodki      !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public void addListenerOnButtonDeleteCar() {
         final Context context = this;
         usunSamochod.setOnClickListener(new View.OnClickListener() {
@@ -118,7 +135,6 @@ public class GlowneOkno extends AppCompatActivity {
         dodajSamochod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                db.close();
                 Intent intent = new Intent(context, DodawanieSamochodow.class);
                 startActivity(intent);
                 //adapter.notifyDataSetChanged();
@@ -134,6 +150,7 @@ public class GlowneOkno extends AppCompatActivity {
         if(czy_usunac==0) {
             Intent intent = new Intent(getApplicationContext(), SzczegolySamochodu.class);
             intent.putExtra("id", Integer.toString(auto.getId()));
+            intent.putExtra("spalanie", Float.toString(auto.getSpalanie()));
             startActivity(intent);
         }
 
@@ -168,7 +185,22 @@ public class GlowneOkno extends AppCompatActivity {
     }
 */
 
+    public void WyswietlLogi() {
+        final Context context = this;
+        logi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                for (Samochod cn : db.PobierzWszystkieSamochody()) {
+                    String log = "Id: " + cn.getId() + " ,Model: " + cn.getMarka() + " , Marka: " + cn.getModel();
+                    Log.d("Name: ", log);
+                }
 
+
+
+                //adapter.notifyDataSetChanged();
+            }
+        });
+    }
 
 
 

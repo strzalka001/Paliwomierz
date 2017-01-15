@@ -17,7 +17,9 @@
         </activity>
         <activity android:name=".DodawanieSamochodow" />
         <activity android:name=".SzczegolySamochodu" />
-        <activity android:name=".PotwierdzenieUsunieciaSamochodu"></activity>
+        <activity android:name=".PotwierdzenieUsunieciaSamochodu" />
+        <activity android:name=".DodawanieTankowania" />
+        <activity android:name=".SzczegolyTankowan"></activity>
     </application>
 
 </manifest>

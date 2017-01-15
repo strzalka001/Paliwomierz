@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#9999FF"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/textViewData"
+        android:paddingTop="1dp"
+        android:textStyle=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:paddingRight="5dp"
+        android:layout_alignParentRight="true"
+
+        />
+
+    <TextView
+        android:id="@+id/textViewLitry"
+        android:paddingTop="25dp"
+        android:textStyle=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:paddingRight="5dp"
+        android:layout_alignParentRight="true"
+        />
+
+
+    <TextView
+    android:id="@+id/textViewCena"
+    android:paddingTop="50dp"
+    android:textStyle=""
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="15dp"
+    android:paddingRight="5dp"
+    android:layout_alignParentRight="true"
+
+
+        />
+
+    <TextView
+        android:paddingTop="75dp"
+        android:id="@+id/textViewRazem"
+        android:textStyle="italic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="5dp"
+        android:textSize="15dp"
+        android:layout_alignParentRight="true"
+        />
+
+
+
+
+
+
+    <TextView
+        android:text="Data tankowania: "
+        android:id="@+id/t1"
+        android:paddingTop="1dp"
+        android:textStyle=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:paddingLeft="5dp"
+        android:layout_alignParentLeft="true"
+
+        />
+
+    <TextView
+        android:text="Ilość zatankowanych litrów: "
+        android:id="@+id/t2"
+        android:paddingTop="25dp"
+        android:textStyle=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:paddingLeft="5dp"
+        android:layout_alignParentLeft="true"
+        />
+
+    <TextView
+        android:text="Cena za litr: "
+        android:id="@+id/t3"
+        android:paddingTop="50dp"
+        android:textStyle=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:paddingLeft="5dp"
+        android:layout_alignParentLeft="true"
+
+        />
+
+
+    <TextView
+        android:text="Rachunek: "
+        android:paddingTop="75dp"
+        android:id="@+id/t5"
+        android:textStyle="italic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:textSize="15dp"
+        android:layout_alignParentLeft="true"
+        />
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

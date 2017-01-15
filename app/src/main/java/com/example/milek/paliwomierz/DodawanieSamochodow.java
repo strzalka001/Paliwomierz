@@ -52,12 +52,9 @@ public class DodawanieSamochodow extends AppCompatActivity {
                 intent.putExtra("spalanie",Float.toString(spalanieP));
                 startActivity(intent);
 */
-
                 db.DodajSamochod(new Samochod(markaP, modelP, spalanieP));
                 db.close();
-
-                Intent intent = new Intent(context, GlowneOkno.class);
-                startActivity(intent);
+                finish();
             }
         });
     }

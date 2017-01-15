@@ -64,9 +64,6 @@ public class BazaDanych extends SQLiteOpenHelper {
         else return bazadanych;
     }
 
-
-
-
     @Override
     public void onCreate(SQLiteDatabase db) {
 
