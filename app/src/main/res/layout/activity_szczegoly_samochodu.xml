@@ -28,4 +28,114 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/buttonTankowania" />
+
+    <TextView
+        android:text="Statystyki Ogólne"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView2" />
+
+    <TextView
+        android:text="całkowite koszty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:id="@+id/textView3" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/textViewkoszty" />
+
+    <TextView
+        android:text="średnia cena paliwa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:id="@+id/textView5" />
+
+    <TextView
+        android:text="zatankowane litry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:id="@+id/textView7" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewLitryZat"
+        android:layout_alignBaseline="@+id/textView7"
+        android:layout_alignBottom="@+id/textView7"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="całkowita liczba km"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView7"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:id="@+id/textView13" />
+
+    <TextView
+        android:text="liczba tankowań"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView13"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:id="@+id/textView11" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewKm"
+        android:layout_alignBaseline="@+id/textView13"
+        android:layout_alignBottom="@+id/textView13"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewLiczbaTan"
+        android:layout_alignBaseline="@+id/textView11"
+        android:layout_alignBottom="@+id/textView11"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewSredniaCena"
+        android:layout_alignBaseline="@+id/textView5"
+        android:layout_alignBottom="@+id/textView5"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

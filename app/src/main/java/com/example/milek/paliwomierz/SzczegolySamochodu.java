@@ -7,13 +7,19 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.DecimalFormat;
 
 public class SzczegolySamochodu extends AppCompatActivity {
 
     int id_sam;
     float spalanie;
     Button DodajTankowanie, SzczegolyTankowania;
+    TextView koszty, sredniaCena, calkowiteLitry, calkowiteKm, iloscTankowan;
+    float koszt=0, SredniaCena=0, CalkowiteLitry=0, CalkowiteKm=0, IloscTankowan=0;
+    TankowanieImpl db;
 
 
     @Override
@@ -21,6 +27,9 @@ public class SzczegolySamochodu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_szczegoly_samochodu);
 
+        BazaDanych baza = BazaDanych.PobierzBazeDanych(this, "bazadanych.db", null, 1);
+        db = new TankowanieImpl(this,baza);
+        db.open();
 
         id_sam = Integer.parseInt(this.getIntent().getExtras().getString("id"));
         spalanie = Float.parseFloat(this.getIntent().getExtras().getString("spalanie"));
@@ -28,6 +37,22 @@ public class SzczegolySamochodu extends AppCompatActivity {
 
         DodajTankowanie = (Button) findViewById(R.id.buttonDodajTankowanie);
         SzczegolyTankowania = (Button) findViewById(R.id.buttonTankowania);
+        koszty = (TextView) findViewById(R.id.textViewkoszty);
+        sredniaCena = (TextView) findViewById(R.id.textViewSredniaCena);
+        calkowiteLitry = (TextView) findViewById(R.id.textViewLitryZat);
+        calkowiteKm = (TextView) findViewById(R.id.textViewKm);
+        iloscTankowan = (TextView) findViewById(R.id.textViewLiczbaTan);
+
+        Oblicz();
+        DecimalFormat df = new DecimalFormat();
+        df.setMaximumFractionDigits(2);
+
+        koszty.setText(df.format(koszt) + " zł");
+        sredniaCena.setText(df.format(SredniaCena) + " zł");
+        calkowiteLitry.setText(df.format(CalkowiteLitry)+ " l");
+        calkowiteKm.setText(df.format(CalkowiteKm) + " km");
+        iloscTankowan.setText(df.format(IloscTankowan)+"");
+
 
 
 
@@ -35,6 +60,25 @@ public class SzczegolySamochodu extends AppCompatActivity {
         PrzejdzDoDodawaniaTankowania();
         PrzejdzDoSzczegolowTankowania();
     }
+
+
+    public void Oblicz() {
+
+        for (Tankowanie t : db.PobierzTankowaniaSamochodu(id_sam)) {
+
+            Log.d("Name: ","Id: " + t.getId() + " ,id samochodu: " + t.getId_samochodu() + " , Litry: " + t.getLitry());
+
+            koszt+=t.getCena_za_litr() * t.getLitry();
+            CalkowiteLitry+=t.getLitry();
+            IloscTankowan++;
+            CalkowiteKm += (100.0*t.getLitry())/spalanie;
+        }
+
+        if(koszt>0 && CalkowiteLitry>0)
+            SredniaCena = koszt/CalkowiteLitry;
+
+    }
+
 
 
     public void PrzejdzDoDodawaniaTankowania() {
