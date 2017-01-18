@@ -33,7 +33,7 @@ public class SzczegolySamochodu extends AppCompatActivity {
 
         id_sam = Integer.parseInt(this.getIntent().getExtras().getString("id"));
         spalanie = Float.parseFloat(this.getIntent().getExtras().getString("spalanie"));
-        Toast.makeText(SzczegolySamochodu.this, "Id: " + id_sam, Toast.LENGTH_SHORT).show();
+
 
         DodajTankowanie = (Button) findViewById(R.id.buttonDodajTankowanie);
         SzczegolyTankowania = (Button) findViewById(R.id.buttonTankowania);

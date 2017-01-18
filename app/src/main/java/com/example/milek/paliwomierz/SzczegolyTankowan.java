@@ -38,7 +38,7 @@ public class SzczegolyTankowan extends AppCompatActivity {
         usuwanie = (Button) findViewById(R.id.buttonUsunTankowanie);
         id_sam = Integer.parseInt(this.getIntent().getExtras().getString("id"));
         spalanie = Float.parseFloat(this.getIntent().getExtras().getString("spalanie"));
-        Toast.makeText(SzczegolyTankowan.this, "Id: " + id_sam, Toast.LENGTH_SHORT).show();
+
 
         BazaDanych baza = BazaDanych.PobierzBazeDanych(this, "bazadanych.db", null, 1);
         db = new TankowanieImpl(this,baza);
