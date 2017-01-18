@@ -24,7 +24,6 @@ public class GlowneOkno extends AppCompatActivity {
 
     AdapterListySamochodow adapter;
     List samochody;
-    Button dodajSamochod, usunSamochod, logi;
     ImageView add, delete;
     ListView listaSamochodow;
     TextView wybierzSamochod;
@@ -39,9 +38,7 @@ public class GlowneOkno extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_glowne_okno);
-        //dodajSamochod = (Button) findViewById(R.id.buttonDodajSamochod);
         wybierzSamochod = (TextView) findViewById(R.id.wybierzSamochod);
-        //usunSamochod = (Button) findViewById(R.id.buttonUsunSamochod);
         listaSamochodow= (ListView) findViewById(R.id.ListViewSamochody);
         layout = (RelativeLayout) findViewById(R.id.activity_glowne_okno);
         add = (ImageView) findViewById(R.id.imageViewAdd);
@@ -125,14 +122,14 @@ public class GlowneOkno extends AppCompatActivity {
                 if(czy_usunac==0)
                 {
                     czy_usunac=1;
-                    layout.setBackgroundColor(Color.parseColor("#FF9999"));
-                    wybierzSamochod.setText("Wybierz samochod, który chcesz usunąć:");
+                    layout.setBackgroundColor((getResources().getColor(R.color.kolor_usuwania)));
+                    wybierzSamochod.setText(getResources().getString(R.string.text_usuwanie_samochodu));
                 }
                 else if(czy_usunac>0)
                 {
                     czy_usunac=0;
-                    layout.setBackgroundColor(Color.parseColor("#CCCCFF"));
-                    wybierzSamochod.setText("Wybierz samochód: ");
+                    layout.setBackgroundColor((getResources().getColor(R.color.tlo)));
+                    wybierzSamochod.setText(getResources().getString(R.string.wybierz_samochod));
                 }
 
 
@@ -174,7 +171,7 @@ public class GlowneOkno extends AppCompatActivity {
             adapter.remove(auto);
             adapter.notifyDataSetChanged();
             czy_usunac=0;
-            layout.setBackgroundColor(Color.parseColor("#CCCCFF"));
+            layout.setBackgroundColor(getResources().getColor(R.color.tlo));
             wybierzSamochod.setText("Wybierz samochód: ");
         }
 
@@ -183,21 +180,5 @@ public class GlowneOkno extends AppCompatActivity {
             czy_usunac=2;
         }
     }
-
-/*
-    public void DodajDoBazySamochod() {
-       if(this.getIntent().getExtras().getString("marka")!=null) {
-           String marka1 = this.getIntent().getExtras().getString("marka");
-           String model1 = this.getIntent().getExtras().getString("model");
-           Float spalanie1 = Float.parseFloat(this.getIntent().getExtras().getString("spalanie"));
-           db.DodajSamochod(new Samochod(marka1, model1, spalanie1));
-           adapter.add(new Samochod(marka1, model1, spalanie1));
-       }
-    }
-*/
-
-
-
-
 
 }

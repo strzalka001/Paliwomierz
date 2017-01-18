@@ -44,11 +44,8 @@ public class AdapterListySamochodow extends ArrayAdapter<Samochod> {
         TextView txtTitle = (TextView) convertView.findViewById(R.id.nazwa);
         txtTitle.setText(product.getMarka() + ", " + product.getModel());
 
-        TextView txtPrice = (TextView) convertView.findViewById(R.id.cena);
-        txtPrice.setText(Float.toString(product.getSpalanie()) + " ");
-
         TextView txtDesc = (TextView) convertView.findViewById(R.id.opis);
-        txtDesc.setText("id: " + product.getId());
+        txtDesc.setText("Spalanie:  " + Float.toString(product.getSpalanie()) +  " l/100km");
 
         // show image
         //ImageView img = (ImageView)convertView.findViewById(R.id.image);

@@ -3,4 +3,13 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="tlo">#9999FF</color>
+    <color name="tlo_adaptera">#ccccff</color>
+    <color name="kolor_naglowka">#000066</color>
+    <color name="kolor_usuwania">#FF9999</color>
+    <color name="kolor_zwyklego_textu">#004C99</color>
+
+    <color name="kolor_buttona">#FFCCE5</color>
+    <color name="kolor_textu_buttona">#660066</color>
+
 </resources>

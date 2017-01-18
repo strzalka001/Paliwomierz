@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">E-Paliwko ;></string>
+
+
+    <!-- Dodawanie samochodu -->
+    <string name="dodaj_marka">Car brand</string>
+    <string name="dodaj_model">Car model</string>
+    <string name="dodaj_spalanie">Avarage fuel consumption at 100km</string>
+    <string name="button_dodaj">Add</string>
+    <string name="text_dodaj_samochod">Add car:</string>
+
+    <!-- Dodawanie tankowania -->
+    <string name="text_dodaj_tankowanie">Add a refuel</string>
+    <string name="dodaj_litry">Amount of fuel refuelled</string>
+    <string name="dodaj_cena">Price per litre</string>
+    <string name="dodaj_data">Date of refueling</string>
+
+    <!-- okno glowne -->
+    <string name="wybierz_samochod">Select your car:</string>
+    <string name="wybierz_samochod_usun">Select car to delete:</string>
+
+    <!-- Szczegoly tankowan -->
+    <string name="text_szczegoly_tankowan">Details of your refuelings:</string>
+
+    <!-- szczegoly samochodu -->
+    <string name="text_statystyki">General statistics</string>
+    <string name="text_koszty">Total costs:</string>
+    <string name="text_srednia_cena">Avarage price of fuel:</string>
+    <string name="text_ogolne_litry">Amount of refuelled fuel:</string>
+    <string name="text_calkowite_km">Total km:</string>
+    <string name="text_liczba_tankowan">Amount of refuels:</string>
+    <string name="button_dodaj_tankowanie">Add a refuel</string>
+    <string name="button_szczegoly_tankowan">Details of refuels</string>
+
+    <string name="text_usuwanie_samochodu">Select a car to delete:</string>
+
+
+
+</resources>

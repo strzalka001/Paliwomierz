@@ -8,4 +8,36 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+
+    <style name="naglowki">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/kolor_naglowka</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_alignParentLeft">true</item>
+    </style>
+
+    <style name="zwykly_tekst">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/kolor_zwyklego_textu</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
+    <style name="styl_button">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/kolor_textu_buttona</item>
+        <item name="android:layout_width">wrap_content</item>
+
+    </style>
+
+
+
+
+
 </resources>

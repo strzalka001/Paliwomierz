@@ -4,7 +4,7 @@
     android:id="@+id/activity_dodawanie_tankowania"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CCCCFF"
+    android:background="@color/tlo"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -21,7 +21,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:inputType="numberDecimal"
-        android:hint="Ile litrow zalales?" />
+        android:hint="@string/dodaj_litry"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -33,7 +35,9 @@
         android:layout_below="@+id/editTextCena"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="Data tankowania" />
+        android:hint="@string/dodaj_data"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -42,18 +46,29 @@
         android:ems="10"
         android:layout_marginTop="29dp"
         android:id="@+id/editTextCena"
-        android:hint="Cena za litr"
+        android:hint="@string/dodaj_cena"
         android:layout_below="@+id/editTextLitry"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
-        android:text="Dodaj"
-        android:layout_width="wrap_content"
+        android:text="@string/button_dodaj"
+        style="@style/styl_button"
         android:layout_height="wrap_content"
         android:id="@+id/buttonDodaj"
+        android:backgroundTint="@color/kolor_buttona"
         android:layout_below="@+id/editTextData"
         android:layout_alignRight="@+id/editTextData"
         android:layout_alignEnd="@+id/editTextData"
         android:layout_marginTop="18dp" />
+
+    <TextView
+        android:text="@string/text_dodaj_tankowanie"
+        android:textSize="@dimen/text_naglowek"
+        style="@style/naglowki"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView6" />
 </RelativeLayout>

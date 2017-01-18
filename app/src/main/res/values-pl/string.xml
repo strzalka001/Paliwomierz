@@ -1,5 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">E-Paliwko</string>
+
+    <string name="app_name">E-Paliwko ;></string>
 
 
     <!-- Dodawanie samochodu -->
@@ -34,12 +36,5 @@
 
 
     <string name="text_usuwanie_samochodu">Wybierz samochod, który chcesz usunąć:</string>
-
-
-
-
-
-
-
 
 </resources>

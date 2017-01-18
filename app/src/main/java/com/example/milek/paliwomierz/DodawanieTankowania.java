@@ -101,6 +101,17 @@ public class DodawanieTankowania extends AppCompatActivity {
 
 
     }
+    @Override
+    protected void onPause() {
+        db.close();
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        db.open();
+        super.onResume();
+    }
 
 
 

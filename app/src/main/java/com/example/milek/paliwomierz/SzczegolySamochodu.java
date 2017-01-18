@@ -60,10 +60,39 @@ public class SzczegolySamochodu extends AppCompatActivity {
         PrzejdzDoDodawaniaTankowania();
         PrzejdzDoSzczegolowTankowania();
     }
+    @Override
+    protected void onPause() {
+        db.close();
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+
+        db.open();
+        Oblicz();
+        DecimalFormat df = new DecimalFormat();
+        df.setMaximumFractionDigits(2);
+        koszty.setText(df.format(koszt) + " zł");
+        sredniaCena.setText(df.format(SredniaCena) + " zł");
+        calkowiteLitry.setText(df.format(CalkowiteLitry)+ " l");
+        calkowiteKm.setText(df.format(CalkowiteKm) + " km");
+        iloscTankowan.setText(df.format(IloscTankowan)+"");
+
+        super.onResume();
+
+    }
+
+
+
 
 
     public void Oblicz() {
-
+        koszt=0;
+        SredniaCena=0;
+        CalkowiteLitry=0;
+        CalkowiteKm=0;
+        IloscTankowan=0;
         for (Tankowanie t : db.PobierzTankowaniaSamochodu(id_sam)) {
 
             Log.d("Name: ","Id: " + t.getId() + " ,id samochodu: " + t.getId_samochodu() + " , Litry: " + t.getLitry());
